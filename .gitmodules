@@ -1,0 +1,15 @@
+[submodule "hc-bc-portals"]
+	path = hc-bc-portals
+	url = https://github.com/schmidtp0740/hc-bc-portals.git
+[submodule "hc-bc-rxLedger-console"]
+	path = hc-bc-rxLedger-console
+	url = https://github.com/schmidtp0740/hc-bc-rxLedger-console.git
+[submodule "hc-bc-backend"]
+	path = hc-bc-backend
+	url = https://github.com/schmidtp0740/hc-bc-backend.git
+[submodule "hc-bc-mysql"]
+	path = hc-bc-mysql
+	url = https://github.com/schmidtp0740/hc-bc-mysql.git
+[submodule "hc-bc-chaincode"]
+	path = hc-bc-chaincode
+	url = https://github.com/schmidtp0740/hc-bc-chaincode.git
