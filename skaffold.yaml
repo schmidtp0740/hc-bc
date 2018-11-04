@@ -1,0 +1,21 @@
+# Used for production
+apiVersion: skaffold/v1alpha5
+kind: Config
+build:
+  artifacts:
+  - image: schmidtp0740/hc-bc-backend
+    context: hc-bc-backend
+  - image: schmidtp0740/hc-bc-mysql
+    context: hc-bc-mysql
+  - image: schmidtp0740/hc-bc-portals
+    context: hc-bc-portals
+  - image: schmidtp0740/hc-bc-rxledger-console
+    context: hc-bc-rxLedger-console
+deploy:
+  kubectl:
+    manifests:
+    - k8s/k8s-backend.yaml
+    - k8s/k8s-mysql.yaml
+    - k8s/lb-service.yaml
+    - k8s/k8s-portals.yaml
+    - k8s/k8s-rxledger-console.yaml

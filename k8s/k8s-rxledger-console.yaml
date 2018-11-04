@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hc-bc-rxledger-console
+  labels:
+    app: hc-bc
+spec:
+  selector:
+    matchLabels:
+      app: hc-bc
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: hc-bc
+    spec:
+      containers:
+      - name: rxledger-console
+        image: schmidtp0740/hc-bc-rxledger-console
+        ports:
+        - containerPort: 3002
