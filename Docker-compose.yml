@@ -1,0 +1,38 @@
+version: "3.2"
+
+services:
+  portals:
+    build: 
+      context: hc-bc-portals
+      dockerfile: "Dockerfile-dev"
+    ports:
+    - "3000:3000"
+    volumes:
+      - type: bind
+        source: ./hc-bc-portals/src
+        target: /usr/app/src/src
+  rxledger:
+    build: hc-bc-rxLedger-console
+    ports:
+    - "82:3002"
+  backend:
+    build: hc-bc-backend
+    ports:
+      - "8080:8080"
+    environment:
+    - hostname=http://129.213.52.239:4001
+    - channel=test1.emr.channel
+    - chaincode=emrcc-test
+    - chaincodeVer=v1
+    - dbName=hc-bc-mysql
+  mysql:
+    build: hc-bc-mysql
+    ports:
+      - "3306:3306"
+    environment:
+    - MYSQL_ROOT_PASSWORD=rootpass
+    - MYSQL_USER=dbuser
+    - MYSQL_PASSWORD=userpass
+    - MYSQL_DATABASE=myimagedb
+
+
